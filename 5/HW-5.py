@@ -26,23 +26,46 @@ res = calculate_of_type(1,"2")
 print(type(res))
 print(res)
 
+def different_types(a,b):
+    if type (a) is float and type (b) is int:
+        c = a * b
+        print('Произведение чисел равно: ',type(c), c)
+        return c
+    elif type (a) is str and type (b) is str:
+        c = a + b
+        print('Конкатенация слов равна: ',type(c), c)
+        return c
+    elif type (a) is str:
+        c = {'a': 'b'}
+        print('Словарь состоит из: ',type(c), c)
+        return c
+    else:
+        c = (a,b)
+        print('Кортеж состоит из: ',type(c), c)
+        return c
+different_types(2.5,3)
+different_types('Hello','world')
+different_types('Hello',2 )
+different_types(1,'ок')
+print()
+
 
 # Дан словарь продавцов и цен на какой то товар у разных продавцов
 # : { ‘citrus’: 47.999, ‘istudio’ 42.999, ‘moyo’: 49.999, ‘royal-service’: 37.245, ‘buy.ua’: 38.324, ‘g-store’: 37.166, ‘ipartner’: 38.988, ‘sota’: 37.720 }.
 # Написать функцию возвращающую список имен продавцов, чьи цены попадают в определенный диапазон.
 # Функция должна принимать словарь, начало и конец диапазона и возвращать список имен.
 
-def price_value (one,two,*dct):
-    if type(dct) == dict:
+def price_value(dct, one, two):
+    if type(dct) != dict:
         return
-        dct = {}
-    for x in dct:
-        for i,j in x.items():
+    else:
+        for i, j in dct.items():
             if j >= one and j <= two:
                 print(i, j)
 
-price_value (30,39,{ 'citrus': 47.999, 'istudio': 42.999, 'moyo': 49.999, 'royal-service': 37.245,
-'buy.ua': 38.324, 'g-store': 37.166, 'ipartner': 38.988, 'sota': 37.720 })
+
+price_value({'citrus': 48, 'istudio': 42.999, 'moyo': 50, 'royal-service': 37.245,
+             'buy.ua': 38.324, 'g-store': 37.166, 'ipartner': 38.988, 'sota': 37.720}, 48, 50)
 
 
 
