@@ -1,9 +1,9 @@
 from random import randint
 
-# * Добавить в задание 2 счетчик попыток и диапазон чисел (начало и конец).
-# Пользователь вводит количество попыток, за которые он может угадать число.
-# Пользователь вводит начало и конец диапазона. На каждом шаге угадывания числа сообщайте пользователю сколько попыток у него осталось.
-# Если пользователь не смог угадать за отведенное количество попыток сообщить ему об окончании (Looser!).
+# Пишем игру. Программа выбирает из диапазона чисел (пусть для начала будет 1-100)
+# случайное число и предлагает пользователю его угадать. Пользователь вводит число.
+# Если пользователь не угадал - предлагает пользователю угадать еще раз, пока он не угадает.
+# Если угадал - спрашивает хочет ли он повторить игру (Y/N). Если Y - повторить. N - Прекратить
 def enterInPrograme(stringer):
     if stringer == 'y':
         return True
@@ -14,17 +14,21 @@ def enterInPrograme(stringer):
         enterInPrograme (string)
 
 
-def rangeOfDigits ():
-    try:
-        integerFirst = int(input("Please write start of range  "))
-        integerSecond = int(input("Please write start of range  "))
-        random = randint(integerFirst, integerSecond )
-        print(random)
-        return random
-    except ValueError:
-            print("Please write only number ")
+def enterNumberInGame ():
+    # attempt = countOfAttempt()
 
-rangeOfDigits ()
+    while True:
+        try:
+            integer = int(input("Please write number in range 0-1 "))
+            random = randint(0,1)
+            if integer == random:
+                string = input("Would you like to play again please write 'y' or 'n'").strip().lower()
+                if not enterInPrograme(string):
+                    break
+        except ValueError:
+            print("Please write number in range 0-1 ")
+
+enterNumberInGame()
 
 
 

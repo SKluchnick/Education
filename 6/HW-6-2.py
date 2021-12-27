@@ -9,9 +9,9 @@ def enterInPrograme(stringer):
         return True
     elif stringer == 'n':
         return False
-    # else:
-    #     string = input("Would you like to play again please write 'y' or 'n'").strip().lower()
-    #     enterInPrograme (string)
+    else:
+        string = input("Would you like to play again please write 'y' or 'n'").strip().lower()
+        enterInPrograme (string)
 
 def rangeOfDigits ():
     try:
@@ -37,11 +37,14 @@ def countOfAttempt ():
 
 
 def enterNumberInGame ():
-    # attempt = countOfAttempt()
-
+    attempt = countOfAttempt()
+    print(f'you have {attempt} attempts')
     while True:
         try:
+
             integer = int(input("Please write number in range 0-1 "))
+            attempt -= 1
+            print(f'you have {attempt} attempt')
             random = rangeOfDigits()
             if integer == random:
                 string = input("Would you like to play again please write 'y' or 'n'").strip().lower()
@@ -50,4 +53,4 @@ def enterNumberInGame ():
         except ValueError:
             print("Please write number in range 0-1 ")
 
-enterNumberInGame()
+enterNumberInGame ()
