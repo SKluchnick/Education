@@ -81,9 +81,15 @@ class UnitSecond:
         else:
             return
 
+#
+unitsecond = UnitSecond(11111, 2, 3, 4)
+unitsecond.name = 25
+print(unitsecond.name)
+unitsecond.name = "str"
+print(unitsecond.name)
 
-unitsecond = UnitSecond(1, 2, 3, 4)
-# unitsecond.name = 25
-print(unitsecond.name)
-unitsecond.name = 11
-print(unitsecond.name)
+
+
+
+
+
