@@ -3,6 +3,7 @@
 # Создать get и set методы для каждого поля. Создать экземпляр класса Автомобиль,
 # задать сеттером каждое поле, вывести в консоль значение каждого поля геттером.
 # Созданный вами класс должен отвечать принципам инкапсуляции.
+
 class Car:
 
     def __init__(self, yearsOfProduct: int, color: str, model: str):
@@ -44,8 +45,9 @@ class Car:
     @property
     def model(self):
         return self.__model
+
     @model.setter
-    def model (self , value):
+    def model(self, value):
         self.varifyInt(value)
         self.__model = value
 
@@ -54,3 +56,46 @@ car = Car(1, 'blue', "BMV")
 print(car.color)
 print(car.model)
 print(car.YearsOfProduct)
+
+
+#
+# Задачи:
+# 2. Создать класс Мотоцикл (англ. Motorbike), с полями “Год выпуска”, “Цвет”,
+# “Модель”. Создать экземпляр класса Мотоцикл, с помощью конструктора (сеттеры не
+# использовать). Придерживаться принципов инкапсуляции и использовать ключевое
+# слово this. Геттером получить год выпуска, цвет, модель, вывести значения в
+# консоль
+
+class Bike:
+
+    def __init__(self, yearsOfProduct: int, color: str, model: str):
+        if not isinstance(yearsOfProduct, int) or not isinstance(color,str) or not isinstance(model,str):
+            raise TypeError ('(yearsOfProduct, int) (color,str) (model,str)')
+        self.__yearsOfProduct = yearsOfProduct
+        self.__color = color
+        self.__model = model
+
+
+
+    @property
+    def YearsOfProduct(self):
+        return self.__yearsOfProduct
+
+
+    @property
+    def color(self):
+        return self.__color
+
+
+
+    @property
+    def model(self):
+        return self.__model
+
+
+
+bike = Bike(1, 'blue', "BMV")
+print(bike.color)
+print(bike.model)
+print(bike.YearsOfProduct)
+
