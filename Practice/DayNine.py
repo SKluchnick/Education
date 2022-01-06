@@ -1,20 +1,3 @@
-#TODO Создайте класс Человек (англ. Human). У человека должно быть поле “имя” (англ.
-# name). На это поле в классе должен быть конструктор, get и set методы. Также, у
-# Человека должен быть метод printInfo(), который выводит в консоль информацию
-# о человеке в формате: “Этот человек с именем ИМЯ”.
-
-#TODO Затем, создайте класс Студент (англ. Student), который наследуется от класса
-# Человек. У студента есть дополнительное строковое поле - название его учебной
-# группы. Для этого поля тоже необходимо создать геттер и сеттер. Конструктор в
-# классе Студент должен принимать на вход два аргумента - имя и название учебной
-# группы. Метод printInfo() в классе Студент должен быть переопределен таким
-# образом, чтобы формат выводимого в консоль сообщения был таким:
-# “Этот человек с именем ИМЯ”
-# “Этот студент с именем ИМЯ”
-# (должно выводиться именно две строки - необходимо использовать ключевое слово
-# super)
-
-
 class Human:
 
     def __init__(self, name):
@@ -69,5 +52,131 @@ class Student(Human):
 student = Student('Peter','Math')
 student.printInfo()
 
-class Teacher(Human):
+class Figure:
+
+    def __init__(self, color):
+        self.varifyStr(color)
+        self.__color = color
+
+    def area(self):
+        pass
+
+    def perimetr(self):
+        pass
+
+    def varifyStr(self, value):
+        if not isinstance(value, str):
+            raise TypeError('Must be str')
+
+    @property
+    def color(self):
+        return self.__color
+
+    @color.setter
+    def color(self, value):
+        self.varifyStr(value)
+        self.__color = value
+
+
+
+class Triangle(Figure):
+
+    def __init__(self, x, y, z, color):
+        super().__init__(color)
+        self.varifyInt(x)
+        self.varifyInt(y)
+        self.varifyInt(z)
+        self.__x = x
+        self.__y = y
+        self.__z = z
+
+    def area(self):
+        return self.__x + self.__z + self.__z
+
+    def perimetr(self):
+        res = self.area()
+        return res * 2
+
+    def varifyInt(self, value):
+        if not isinstance(value, int):
+            raise TypeError('Must be int')
+
+    @property
+    def x(self):
+        return self.__x
+
+    @x.setter
+    def x(self, value):
+        self.varifyInt(value)
+        self.__x = value
+
+    @property
+    def y(self):
+        return self.__x
+
+    @y.setter
+    def y(self, value):
+        self.varifyInt(value)
+        self.__y = value
+
+    @property
+    def z(self):
+        return self.__z
+
+    @y.setter
+    def z(self, value):
+        self.varifyInt(value)
+        self.__z = value
+
+
+
+class Circle(Figure):
+
+    def __init__(self, x, color):
+        super().__init__(color)
+        self.varifyInt(x)
+        self.__x = x
+
+    def area(self):
+        return self.__x
+
+    def perimetr(self):
+        res = self.area()
+        return res * 2
+
+    def varifyInt(self, value):
+        if not isinstance(value, int):
+            raise TypeError('Must be int')
+
+    @property
+    def x(self):
+        return self.__color
+
+    @x.setter
+    def x(self, value):
+        self.varifyInt(value)
+        self.__x = value
+
+
+lst = [Triangle(1,1,1,'red'),Triangle(1,1,1,'blue'),Triangle(1,1,1,'red'),Circle(1,'red'),Circle(1,'blue')]
+
+def calculateRedArea(value):
+    sum = 0
+    for i in value:
+        if i.color == 'red':
+            sum += i.area()
+    return sum
+
+res = calculateRedArea(lst)
+print(res)
+
+def calculateRedPerimeter(value):
+    sum = 0
+    for i in value:
+        if i.color == 'red':
+            sum += i.perimetr()
+    return sum
+
+res = calculateRedPerimeter(lst)
+print(res)
 
