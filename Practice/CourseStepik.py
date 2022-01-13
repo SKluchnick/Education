@@ -847,3 +847,170 @@ def modify_list(l):
         else:
             l[i]=l[i]//2
             i+=1
+#
+# Напишите функцию update_dictionary(d, key, value), которая принимает на вход словарь dd и два числа: keykey и valuevalue.
+# Если ключ keykey есть в словаре dd, то добавьте значение valuevalue в список, который хранится по этому ключу.
+# Если ключа keykey нет в словаре,
+# то нужно добавить значение в список по ключу 2 * key2∗key.
+# Если и ключа 2 * key2∗key нет, то нужно добавить ключ 2 * key2∗key в словарь и сопоставить ему список из переданного элемента [value][value].
+# Требуется реализовать только эту функцию, кода вне её не должно быть.
+# Функция не должна вызывать внутри себя функции input и print.
+# Пример работы функции:
+
+# d = {}
+# print(update_dictionary(d, 1, -1))  # None
+# print(d)                            # {2: [-1]}
+# update_dictionary(d, 2, -2)
+# print(d)                            # {2: [-1, -2]}
+# update_dictionary(d, 1, -3)
+# print(d)                            # {2: [-1, -2, -3]}
+
+def update_dictionary(d, key, value):
+    # put your python code here
+    if key in d:
+        d[key].append(value)
+        #print('ключ есть')
+    elif key is not d:
+        #d[2*key]=[]
+        if 2*key is d:
+            d[2*key].append(value)
+            #print('ключ 2*key уже есть')
+        elif (2*key is not d) and d.get(2*key)==None:
+            d[2*key]=[]
+            d[2*key].append(value)
+            #print('создание ключа и + новое значение списка')
+        elif (2*key is not d) and d.get(2*key)!=None:
+            d[2*key].append(value)
+            #print('создание ключа и + значение списка')
+
+def update_dictionary(d, key, value):
+    if key in d:
+        d[key] += [value]
+    elif 2 * key in d:
+        d[2 * key] += [value]
+    else:
+        d[2 * key] = [value]
+
+
+# Когда Антон прочитал «Войну и мир», ему стало интересно, сколько слов и в каком количестве используется в этой книге.
+# Помогите Антону написать упрощённую версию такой программы, которая сможет подсчитать слова,
+# разделённые пробелом и вывести получившуюся статистику.
+# Программа должна считывать одну строку со стандартного ввода и выводить
+# для каждого уникального слова в этой строке число его повторений (без учёта регистра) в формате "слово количество" (см. пример вывода).
+# Порядок вывода слов может быть произвольным, каждое уникальное слово﻿ должно выводиться только один раз.
+# Sample Input 1:
+
+# a aa abC aa ac abc bcd a
+# Sample Output 1:
+#
+# ac 1
+# a 2
+# abc 2
+# bcd 1
+# aa 2
+# Sample Input 2:
+#
+# a A a
+# Sample Output 2:
+#
+# a 3
+
+n='' #инициализация строки
+n = str(input())
+m = [] #инициализация списка
+m.append([str(s.lower()) for s in n.split()])
+d = {} #инициализация пустого словаря
+li, lj = len(m), len(m[0])
+for i in range(li):
+    for j in range(lj):
+        p = m[i][j]
+        if p in d:
+            d[p]+=1
+        else:
+            d[p] = 1
+for key,value in d.items():
+   print(key,value)
+
+
+
+s = input().lower().split()
+for i in set(s):
+    print(i, s.count(i))
+
+
+l = input().lower().split()
+d  = {e:0 for e in l} #создаем словарь на основе списка с 0 значениями
+for key in l: d[key]+= 1 #тупо считаем повторяющиеся
+for key,value in d.items(): print(key, value) #тупо выводим
+
+
+
+# Напишите программу, которая считывает строку с числом nn, которое задаёт количество чисел, которые нужно считать.
+# Далее считывает n строк с числами x_i по одному числу в каждой строке. Итого будет n+1
+# При считывании числа x_i программа должна на отдельной строке вывести значение f(x_i)
+# Функция f(x_i) уже реализована и доступна для вызова.
+#
+# Функция вычисляется достаточно долго и зависит только от переданного аргумента x.
+# Для того, чтобы уложиться в ограничение по времени, нужно избежать повторного вычисления значений.
+#
+# Sample Input:
+#
+# 5
+# 5
+# 12
+# 9
+# 20
+# 12
+# Sample Output:
+#
+# 11
+# 41
+# 47
+# 61
+# 41
+d = {}
+k = []
+n = int(input())
+for i in range(n):
+    x = int(input())
+    k.append(x)
+for j in range(0, len(k)):
+    key = k[j]
+    if key in d:
+        print(d[key])
+    elif key not in d:
+        p = k[j]
+        d[key] = f(p)
+        print(d.get(key))
+
+# Считайте, что функция f(x) уже определена выше. Определять её отдельно не требуется.
+a=[int(input()) for i in range(int(input()))]
+b={x:f(x) for x in set(a)}
+for i in a:
+    print(b[i])
+
+d = {}
+for _ in range(int(input())):
+    x = int(input())
+    if x not in d:
+        d[x] = f(x)
+    print(d[x])
+
+# Считайте, что функция f(x) уже определена выше. Определять её отдельно не требуется.
+cache = {}
+
+for _ in range(int(input())):
+    x = int(input())
+    if x not in cache:
+        cache[x] = f(x)
+
+    print(cache[x])
+
+# Считайте, что функция f(x) уже определена выше. Определять её отдельно не требуется.
+n=int(input())
+d={}
+for i in range(n):
+    x=int(input())
+    if x not in d:
+        d[x]=f(x)
+    print(d[x])
