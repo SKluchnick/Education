@@ -784,3 +784,20 @@ for i in range(1,n+1):
         print(i,end=' ')
         j+=1
         a+=1
+
+# Напишите функцию f(x), которая возвращает значение следующей функции, определённой на всей числовой прямой:
+# Sample Input 1:
+#
+# 4.5
+# Sample Output 1:
+#
+# 7.25
+
+def f(x):
+    if x <= -2:
+        return 1 - ((x+2)**2)
+    elif x > -2 and x <= 2:
+        return -x / 2
+    elif x > 2:
+        return (x - 2) ** 2 + 1
+
