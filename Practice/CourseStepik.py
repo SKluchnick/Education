@@ -773,6 +773,22 @@ for i in range(len(x)-1):
 for i in x2:
     print(i, end=" ")
 
+enter = [int(i) for i in input().split()]
+enter.sort()
+a = set()
+for i in range(0,len(enter)-1):
+    if enter[i] == enter[i+1]:
+        a.add(enter[i])
+
+b = []
+a = [int(i) for i in input().split()]
+for i in a:
+    if a.count(i) > 1 and b.count(i) == 0:
+        b.append(i)
+for i in b:
+    print(i, end=" ")
+
+
 # Напишите программу, которая считывает с консоли числа (по одному в строке) до тех пор,
 # пока сумма введённых чисел не будет равна 0 и сразу после этого выводит сумму квадратов всех считанных чисел.
 # Гарантируется, что в какой-то момент сумма введённых чисел окажется равной 0,
