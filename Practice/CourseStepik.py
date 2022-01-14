@@ -277,6 +277,49 @@ print(max(a,b,c))
 print(min(a,b,c))
 print(s - max(a,b,c) - min(a,b,c))
 
+
+x = 8
+x2 = 2
+x3 = 14
+
+min = 100
+max = 0
+notM = x + x2 + x3
+
+lst = []
+lst += [x]
+lst += [x2]
+lst += [x3]
+
+
+for i in range(len(lst)):
+    if lst[i] > max:
+        max = lst[i]
+    if lst[i] < min:
+        min = lst[i]
+
+notM = notM - min - max
+print(max, end=" ")
+print(min, end=" ")
+print(notM, end=" ")
+
+
+a,b,c=int(input()),int(input()),int(input())
+maxim=a
+minim=b
+if b>a:
+    maxim=b
+    minim=a
+if c>maxim:
+    maxim=c
+if c<minim:
+    minim=c
+ost=a+b+c-minim-maxim
+print(maxim)
+print(minim)
+print(ost)
+
+
 # Напишите программу, считывающую с пользовательского ввода целое число nn (неотрицательное),
 # выводящее это число в консоль вместе с правильным образом изменённым
 # словом "программист", для того, чтобы робот мог нормально общаться с людьми, например: 1 программист, 2 программиста, 5 программистов.
