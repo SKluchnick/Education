@@ -677,12 +677,21 @@ for i in range(0,len(dna)-1):    # итератор проходит по все
         cnt = 1                  # счетчик текущего символа на единице
 print(cnt)                       # в конце распечатываем значение счетчика последнего символа
 
+
 # Напишите программу, на вход которой подается одна строка с целыми числами. Программа должна вывести сумму этих чисел.
 # Используйте метод split строки. ﻿﻿
 # Sample Input:
 # 4 -1 9 3
 # Sample Output:
 # 15
+enter = [int(i) for i in input().split()]
+
+sum = 0
+for i in enter:
+    sum += i
+print(sum)
+
+
 array = input().split()
 sum = 0
 for elem in array:
