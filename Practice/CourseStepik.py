@@ -858,42 +858,6 @@ print(d)
 # Sample Output:
 # 1 2 2 3 3 3 4
 
-S,n = [],int(input()) # создаем пустой список и вводим значение переменной n
-for i in range(1, n + 1):#  для значения списка в промежутке от 1-го по n
-    S.extend([i]*i) # добавляем в конец списка S возрастающую в i раз последовательность
-print(*S[:n]) # выводим на печать весь список S (*S) от нуля по n
-
-n = int(input())
-a = []
-i = 0
-while len(a) < n:
-    a += [i] * i
-    i += 1
-print(*a[:n])
-
-n = int(input())
-count = 0
-curr = 1
-for i in range(n):
-    print(curr, end=' ')
-    count += 1
-    if count == curr:
-        curr += 1
-        count = 0
-
-import math
-x = int(input())
-print(*[int( 1/2 + math.sqrt(2 * n) ) for n in range(1, x + 1)])
-
-a = int(input())
-c = 0
-for i in range(a+1):
-    for j in range(i):
-        c += 1
-        if c<a+1:
-            print(i, end=' ')
-
-
 n=int (input ()) # считуем переменную
 i=1
 count=0
@@ -906,15 +870,20 @@ while count<n:  # условие на превышение переборов
             break
     i+=1
 
-n=int(input())
-j=1
-a=0
-for i in range(1,n+1):
-    j=0
-    while j!=i and a!=n:
-        print(i,end=' ')
-        j+=1
-        a+=1
+
+n = int(input()) #вводим количество выводимых элементов последовательности
+a = [] #создаем пустой список
+i = 1 #задаем значение нулевого элемента последовательности
+j = 0 #задаем значение индекса нулевого элемента последовательности
+while len(a) < n: #пока длина списка меньше, чем количество выводимых элементов последовательности
+    for x in range(i): #для каждого элемента последовательности:
+        a += [i] #добавляем элемент в список столько раз, чему равно значение элемента
+    i += 1 #увеличиваем значение элемента на один
+while j < n: #так как список получился длиннее, чем необходимое количество выводимых э
+    # лементов последовательности, на печать выводим не весь список, а ровно то количество, которое нам нужно
+    print(a[j], end=' ')
+    j += 1
+
 
 # Напишите программу, которая считывает список чисел lstlst из первой строки и число xx из второй строки,
 # которая выводит все позиции, на которых встречается число xx в переданном списке lstlst.
@@ -945,10 +914,6 @@ for i in range(len(a)):
         c.append(i)
 for i in c:
     print(i, end=" ")
-
-
-
-
 
 
 
@@ -995,13 +960,13 @@ def modify_list(l):
 
 
 
-lst = [10, 5, 3]
+lst = [1, 2, 3, 4, 5, 6]
 i = 0
 while i < len(lst):
     if lst[i] % 2 != 0:
-        print("lol2")
         del lst[i]
     else:
+        lst[i] //= 2
         i += 1
 print(lst)
 
@@ -1057,6 +1022,23 @@ def update_dictionary(d, key, value):
         d[2 * key] += [value]
     else:
         d[2 * key] = [value]
+
+
+def update_dictionary(d, key, value):
+    print(len(d))
+    for k, v in list(d.items()):
+        if k == key:
+            print("two")
+            d[k].append(value)
+        elif d[k] == 2 * key:
+            print("three")
+            d[2 * key].append(value)
+        elif len(d) == 0:
+            print("one")
+            print('создание ключа и + новое значение списка')
+            d.update({2 * key: []})
+            d[2 * key].append(value)
+    print(d)
 
 
 # Когда Антон прочитал «Войну и мир», ему стало интересно, сколько слов и в каком количестве используется в этой книге.
@@ -1181,3 +1163,4 @@ for i in range(n):
     if x not in d:
         d[x]=f(x)
     print(d[x])
+
