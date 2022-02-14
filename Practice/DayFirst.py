@@ -5,16 +5,16 @@
 # JAVA JAVA JAVA JAVA JAVA JAVA JAVA JAVA JAVA JAVA
 
 
-int = 10
-
-while int > 0:
-    print('Python' ,end= ' ')
-    int -= 1
+# int = 10
+#
+# while int > 0:
+#     print('Python' ,end= ' ')
+#     int -= 1
 
 #TODO 2. Повторить задание 1, но используя цикл for.
 
-for i in range (0,10):
-    print('Python', end=' ')
+# for i in range (0,10):
+#     print('Python', end=' ')
 
 #TODO 4. Объявите переменную типа int, имя переменной - year. Присвойте этой
 # переменной значение 1980. Используя цикл while, выведите в столбик строки вида
@@ -30,17 +30,17 @@ for i in range (0,10):
 # Олимпиада 1988 года
 # Олимпиада 1992 года
 
-year = 1980
-
-while year <= 2020:
-
-    print(f'Олимпиада {year}')
-    year += 4
+# year = 1980
+#
+# while year <= 2020:
+#
+#     print(f'Олимпиада {year}')
+#     year += 4
 
 #TODO 5. Повторить задание 4, но используя цикл for
 
-for year in range (1980,2024,4):
-    print(f'Олимпиада {year}')
+# for year in range (1980,2024,4):
+#     print(f'Олимпиада {year}')
 
 #TODO 6. Объявите переменную типа int, имя переменной - k. Присвойте этой переменной
 # какую-нибудь цифру от 1 до 9. Используя цикл на ваше усмотрение (for или while),
@@ -51,9 +51,9 @@ for year in range (1980,2024,4):
 # ……
 # 9 x k = …
 
-k  = 3
-
-for i in range(1,11):
-    print(f'{i } * {k} = {i * k}')
+# k  = 3
+#
+# for i in range(1,11):
+#     print(f'{i } * {k} = {i * k}')
 
 
